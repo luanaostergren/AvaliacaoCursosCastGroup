@@ -30,6 +30,18 @@ namespace CastGroupTurmas.Controllers
         }
 
         /// <summary>
+        ///     Pesquisa por descrição de curso.
+        /// </summary>
+        /// <param name="descricao"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/curso/pesquisar")]
+        public List<Curso> Pesquisar(string descricao)
+        {
+            return db.Curso.Where(x => x.Descricao == descricao).ToList();
+        }
+
+        /// <summary>
         ///     Recupera o curso por código de identificação.
         /// </summary>
         /// <param name="id"></param>
